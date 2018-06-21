@@ -1,0 +1,630 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.0.4 (Python 3.6.5 on win32)" generated="20180620 22:00:25.493">
+<suite id="s1" name="ExpenseCreateApprove" source="C:\development\Oracle_Cloud_HCM_Sauce-master(20-06-2018)\tests\ExpenseCreateApprove.robot">
+<test id="s1-t1" name="Test To Create , Approve and Reject Expense">
+<kw name="Begin Web Test" library="CommonWeb" type="setup">
+<kw name="Open Browser" library="Selenium2Library">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>${START_URL}</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20180620 22:00:25.662" level="INFO">Opening browser 'chrome' to base url 'about:blank'.</msg>
+<status status="PASS" starttime="20180620 22:00:25.662" endtime="20180620 22:00:27.921"></status>
+</kw>
+<kw name="Maximize Browser Window" library="Selenium2Library">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20180620 22:00:27.922" endtime="20180620 22:00:29.058"></status>
+</kw>
+<status status="PASS" starttime="20180620 22:00:25.662" endtime="20180620 22:00:29.059"></status>
+</kw>
+<kw name="Expense Auditor Should Be Able To Reject And Audit An Expense Report" library="ExpenseAuditorRejectCreate">
+<tags>
+<tag>Smoke</tag>
+</tags>
+<doc>This script is used to Audit an Expense Report and Reject in Oracle HCM</doc>
+<kw name="Login As Auditor" library="CommonWeb">
+<arguments>
+<arg>${Auditor_Email}</arg>
+<arg>${Auditor_Pwd}</arg>
+</arguments>
+<kw name="Delete All Cookies" library="Selenium2Library">
+<doc>Deletes all cookies.</doc>
+<status status="PASS" starttime="20180620 22:00:29.063" endtime="20180620 22:00:29.077"></status>
+</kw>
+<kw name="Enter URL" library="CommonWeb">
+<kw name="Go To" library="Selenium2Library">
+<doc>Navigates the active browser instance to the provided ``url``.</doc>
+<arguments>
+<arg>${URL}</arg>
+</arguments>
+<msg timestamp="20180620 22:00:29.080" level="INFO">Opening url 'https://efrx-test.fs.ap4.oraclecloud.com/homePage/faces/FuseWelcome'</msg>
+<status status="PASS" starttime="20180620 22:00:29.079" endtime="20180620 22:00:45.864"></status>
+</kw>
+<status status="PASS" starttime="20180620 22:00:29.078" endtime="20180620 22:00:45.865"></status>
+</kw>
+<kw name="Enter UserID" library="CommonWeb">
+<arguments>
+<arg>${Auditor_Email}</arg>
+</arguments>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>${LOGIN_USER}</arg>
+<arg>${userid}</arg>
+</arguments>
+<msg timestamp="20180620 22:00:45.866" level="INFO">Typing text 'Vasanthshrinivas V Naik' into text field 'id=userid'.</msg>
+<status status="PASS" starttime="20180620 22:00:45.865" endtime="20180620 22:00:45.996"></status>
+</kw>
+<status status="PASS" starttime="20180620 22:00:45.865" endtime="20180620 22:00:45.997"></status>
+</kw>
+<kw name="Enter Password" library="CommonWeb">
+<arguments>
+<arg>${Auditor_Pwd}</arg>
+</arguments>
+<kw name="Input Password" library="Selenium2Library">
+<doc>Types the given password into text field identified by ``locator``.</doc>
+<arguments>
+<arg>${LOGIN_PWD}</arg>
+<arg>${password}</arg>
+</arguments>
+<msg timestamp="20180620 22:00:45.997" level="INFO">Typing password into text field 'id=password'.</msg>
+<status status="PASS" starttime="20180620 22:00:45.997" endtime="20180620 22:00:46.069"></status>
+</kw>
+<status status="PASS" starttime="20180620 22:00:45.997" endtime="20180620 22:00:46.069"></status>
+</kw>
+<kw name="Click Signin Button" library="CommonWeb">
+<kw name="Click Button" library="Selenium2Library">
+<doc>Clicks button identified by ``locator``.</doc>
+<arguments>
+<arg>${SIGNIN}</arg>
+</arguments>
+<msg timestamp="20180620 22:00:46.069" level="INFO">Clicking button 'id=btnActive'.</msg>
+<status status="PASS" starttime="20180620 22:00:46.069" endtime="20180620 22:00:54.347"></status>
+</kw>
+<status status="PASS" starttime="20180620 22:00:46.069" endtime="20180620 22:00:54.347"></status>
+</kw>
+<kw name="Wait For Hamburger Menu" library="CommonWeb">
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until element ``locator`` appears on current page.</doc>
+<arguments>
+<arg>${HAMBURGER_MENU}</arg>
+<arg>timeout=20s</arg>
+</arguments>
+<status status="PASS" starttime="20180620 22:00:54.348" endtime="20180620 22:00:54.381"></status>
+</kw>
+<status status="PASS" starttime="20180620 22:00:54.347" endtime="20180620 22:00:54.381"></status>
+</kw>
+<status status="PASS" starttime="20180620 22:00:29.062" endtime="20180620 22:00:54.381"></status>
+</kw>
+<kw name="Expense Auditor Reject Report" library="ExpenseAuditorRejectCreate">
+<kw name="Navigate to Auditing" library="CommonWeb">
+<kw name="Click Hamburger Menu" library="ExpenseItemCreatePage">
+<kw name="Wait Dynamically For An Element And Then Click" library="CommonWeb">
+<arguments>
+<arg>${ITEM_HAMBURGER}</arg>
+</arguments>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until element ``locator`` appears on current page.</doc>
+<arguments>
+<arg>${locator}</arg>
+<arg>18s</arg>
+</arguments>
+<status status="PASS" starttime="20180620 22:00:54.383" endtime="20180620 22:00:54.396"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>${locator}</arg>
+</arguments>
+<msg timestamp="20180620 22:00:54.396" level="INFO">Clicking element 'id=pt1:_UISmmLink'.</msg>
+<status status="PASS" starttime="20180620 22:00:54.396" endtime="20180620 22:00:54.461"></status>
+</kw>
+<status status="PASS" starttime="20180620 22:00:54.382" endtime="20180620 22:00:54.462"></status>
+</kw>
+<status status="PASS" starttime="20180620 22:00:54.382" endtime="20180620 22:00:54.462"></status>
+</kw>
+<kw name="Click Menu Item Auditing" library="ExpenseAuditorApproveCreatePage">
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>5s</arg>
+</arguments>
+<msg timestamp="20180620 22:00:59.462" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20180620 22:00:54.462" endtime="20180620 22:00:59.462"></status>
+</kw>
+<kw name="Wait Dynamically For An Element And Then Click" library="CommonWeb">
+<arguments>
+<arg>${ITEM_MENU_ADD_AUDITING}</arg>
+</arguments>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until element ``locator`` appears on current page.</doc>
+<arguments>
+<arg>${locator}</arg>
+<arg>18s</arg>
+</arguments>
+<status status="PASS" starttime="20180620 22:00:59.464" endtime="20180620 22:00:59.498"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>${locator}</arg>
+</arguments>
+<msg timestamp="20180620 22:00:59.499" level="INFO">Clicking element 'id=pt1:nv_itemNode_expenses_auditing'.</msg>
+<status status="PASS" starttime="20180620 22:00:59.498" endtime="20180620 22:01:07.335"></status>
+</kw>
+<status status="PASS" starttime="20180620 22:00:59.463" endtime="20180620 22:01:07.336"></status>
+</kw>
+<status status="PASS" starttime="20180620 22:00:54.462" endtime="20180620 22:01:07.336"></status>
+</kw>
+<status status="PASS" starttime="20180620 22:00:54.382" endtime="20180620 22:01:07.336"></status>
+</kw>
+<kw name="Navigate for Auditing The Expense Report" library="ExpenseAuditorApproveCreatePage">
+<kw name="Go to Tasks" library="ExpenseAuditorApproveCreatePage">
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>${TASK_ITEM}</arg>
+</arguments>
+<msg timestamp="20180620 22:01:07.338" level="INFO">Clicking element 'xpath=//*[@id="_FOpt1:_FOr1:0:_FONSr2:0:_FOTsdiFndTasksList::disAcr"]'.</msg>
+<status status="PASS" starttime="20180620 22:01:07.337" endtime="20180620 22:01:07.433"></status>
+</kw>
+<status status="PASS" starttime="20180620 22:01:07.337" endtime="20180620 22:01:07.433"></status>
+</kw>
+<kw name="Navigate To Manage Expense Reports" library="ExpenseAuditorApproveCreatePage">
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>5s</arg>
+</arguments>
+<msg timestamp="20180620 22:01:12.434" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20180620 22:01:07.434" endtime="20180620 22:01:12.434"></status>
+</kw>
+<kw name="Click Link" library="Selenium2Library">
+<doc>Clicks a link identified by ``locator``.</doc>
+<arguments>
+<arg>${MANAGE_EXPENSE_REPORT}</arg>
+</arguments>
+<msg timestamp="20180620 22:01:12.436" level="INFO">Clicking link 'xpath=//*[@id="_FOpt1:_FOr1:0:_FONSr2:0:_FOTRaT:0:RAtl1"]'.</msg>
+<status status="PASS" starttime="20180620 22:01:12.435" endtime="20180620 22:01:12.600"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>5s</arg>
+</arguments>
+<msg timestamp="20180620 22:01:17.600" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20180620 22:01:12.600" endtime="20180620 22:01:17.600"></status>
+</kw>
+<status status="PASS" starttime="20180620 22:01:07.433" endtime="20180620 22:01:17.601"></status>
+</kw>
+<kw name="Select And Audit The Expense Report" library="ExpenseAuditorApproveCreatePage">
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>15s</arg>
+</arguments>
+<msg timestamp="20180620 22:01:32.604" level="INFO">Slept 15 seconds</msg>
+<status status="PASS" starttime="20180620 22:01:17.602" endtime="20180620 22:01:32.604"></status>
+</kw>
+<kw name="Select From List By Label" library="Selenium2Library">
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<arguments>
+<arg>${REPORT_STATUS}</arg>
+<arg>Pending expense auditor approval</arg>
+</arguments>
+<msg timestamp="20180620 22:01:32.606" level="INFO">Selecting options from selection list 'xpath=//*[@id="_FOpt1:_FOr1:0:_FONSr2:0:MAnt2:1:pt1:panelGroupLayout2:qryId0:value10::content"]' by label Pending expense auditor approval.</msg>
+<status status="PASS" starttime="20180620 22:01:32.605" endtime="20180620 22:01:32.708"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>${Person_Locator}</arg>
+<arg>Kumar Gour, Jitendra</arg>
+</arguments>
+<msg timestamp="20180620 22:01:32.708" level="INFO">Typing text 'Kumar Gour, Jitendra' into text field 'xpath=//*[@id="_FOpt1:_FOr1:0:_FONSr2:0:MAnt2:1:pt1:panelGroupLayout2:qryId0:value30::content"]'.</msg>
+<status status="PASS" starttime="20180620 22:01:32.708" endtime="20180620 22:01:32.972"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>5s</arg>
+</arguments>
+<msg timestamp="20180620 22:01:37.973" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20180620 22:01:32.972" endtime="20180620 22:01:37.973"></status>
+</kw>
+<kw name="Click Button" library="Selenium2Library">
+<doc>Clicks button identified by ``locator``.</doc>
+<arguments>
+<arg>${SEARCH}</arg>
+</arguments>
+<msg timestamp="20180620 22:01:37.975" level="INFO">Clicking button 'xpath=//*[@id="_FOpt1:_FOr1:0:_FONSr2:0:MAnt2:1:pt1:panelGroupLayout2:qryId0::search"]'.</msg>
+<status status="PASS" starttime="20180620 22:01:37.974" endtime="20180620 22:01:38.144"></status>
+</kw>
+<status status="PASS" starttime="20180620 22:01:17.601" endtime="20180620 22:01:38.144"></status>
+</kw>
+<kw name="Select Suitable Expense Report" library="ExpenseAuditorApproveCreatePage">
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>5s</arg>
+</arguments>
+<msg timestamp="20180620 22:01:43.145" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20180620 22:01:38.145" endtime="20180620 22:01:43.145"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>${CLICK_THE_REPORT}</arg>
+</arguments>
+<msg timestamp="20180620 22:01:43.147" level="INFO">Clicking element 'xpath=//*[@id="_FOpt1:_FOr1:0:_FONSr2:0:MAnt2:1:pt1:panelGroupLayout2:t12:_ATp:t1::db"]/table/tbody/tr[1]/td[1]'.</msg>
+<status status="PASS" starttime="20180620 22:01:43.146" endtime="20180620 22:01:43.362"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>5s</arg>
+</arguments>
+<msg timestamp="20180620 22:01:48.363" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20180620 22:01:43.362" endtime="20180620 22:01:48.363"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>${AUDIT_EXPENSE_REPORT}</arg>
+</arguments>
+<msg timestamp="20180620 22:01:48.365" level="INFO">Clicking element 'xpath=//*[@id="_FOpt1:_FOr1:0:_FONSr2:0:MAnt2:1:pt1:panelGroupLayout2:t12:_ATp:createReportButton"]/a'.</msg>
+<status status="PASS" starttime="20180620 22:01:48.364" endtime="20180620 22:01:48.536"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>5s</arg>
+</arguments>
+<msg timestamp="20180620 22:01:53.537" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20180620 22:01:48.537" endtime="20180620 22:01:53.537"></status>
+</kw>
+<status status="PASS" starttime="20180620 22:01:38.145" endtime="20180620 22:01:53.538"></status>
+</kw>
+<status status="PASS" starttime="20180620 22:01:07.336" endtime="20180620 22:01:53.538"></status>
+</kw>
+<kw name="Select &quot;Actions&quot; Dropdown" library="ExpenseAuditorRejectCreatePage">
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>5s</arg>
+</arguments>
+<msg timestamp="20180620 22:01:58.540" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20180620 22:01:53.540" endtime="20180620 22:01:58.540"></status>
+</kw>
+<kw name="Wait Dynamically For An Element And Then Click" library="CommonWeb">
+<arguments>
+<arg>${CLICK_ACTION_BUTTON}</arg>
+</arguments>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until element ``locator`` appears on current page.</doc>
+<arguments>
+<arg>${locator}</arg>
+<arg>18s</arg>
+</arguments>
+<status status="PASS" starttime="20180620 22:01:58.542" endtime="20180620 22:01:58.583"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>${locator}</arg>
+</arguments>
+<msg timestamp="20180620 22:01:58.584" level="INFO">Clicking element 'id=_FOpt1:_FOr1:0:_FONSr2:0:MAnt2:2:pt1:AppPanel:commandToolbarButton1::popArea'.</msg>
+<status status="PASS" starttime="20180620 22:01:58.583" endtime="20180620 22:01:58.674"></status>
+</kw>
+<status status="PASS" starttime="20180620 22:01:58.541" endtime="20180620 22:01:58.674"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>5s</arg>
+</arguments>
+<msg timestamp="20180620 22:02:03.675" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20180620 22:01:58.674" endtime="20180620 22:02:03.675"></status>
+</kw>
+<kw name="Wait Dynamically For An Element And Then Click" library="CommonWeb">
+<arguments>
+<arg>${REJCT_AUDITOR_EXPENSE_REPORT}</arg>
+</arguments>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until element ``locator`` appears on current page.</doc>
+<arguments>
+<arg>${locator}</arg>
+<arg>18s</arg>
+</arguments>
+<status status="PASS" starttime="20180620 22:02:03.678" endtime="20180620 22:02:03.723"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>${locator}</arg>
+</arguments>
+<msg timestamp="20180620 22:02:03.724" level="INFO">Clicking element 'id=_FOpt1:_FOr1:0:_FONSr2:0:MAnt2:2:pt1:AppPanel:rejectReportAction'.</msg>
+<status status="PASS" starttime="20180620 22:02:03.724" endtime="20180620 22:02:03.840"></status>
+</kw>
+<status status="PASS" starttime="20180620 22:02:03.676" endtime="20180620 22:02:03.841"></status>
+</kw>
+<status status="PASS" starttime="20180620 22:01:53.539" endtime="20180620 22:02:03.841"></status>
+</kw>
+<kw name="Reject Auditor Expense Report" library="ExpenseAuditorRejectCreatePage">
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>5s</arg>
+</arguments>
+<msg timestamp="20180620 22:02:08.842" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20180620 22:02:03.842" endtime="20180620 22:02:08.842"></status>
+</kw>
+<kw name="Select From List By Label" library="Selenium2Library">
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<arguments>
+<arg>${ACTION_REASON}</arg>
+<arg>Incomplete original receipt package</arg>
+</arguments>
+<msg timestamp="20180620 22:02:08.844" level="INFO">Selecting options from selection list 'xpath=//*[@id="_FOpt1:_FOr1:0:_FONSr2:0:MAnt2:2:pt1:AppPanel:soc8::content"]' by label Incomplete original receipt package.</msg>
+<status status="PASS" starttime="20180620 22:02:08.843" endtime="20180620 22:02:08.943"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>5s</arg>
+</arguments>
+<msg timestamp="20180620 22:02:13.943" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20180620 22:02:08.943" endtime="20180620 22:02:13.943"></status>
+</kw>
+<kw name="Click Button" library="Selenium2Library">
+<doc>Clicks button identified by ``locator``.</doc>
+<arguments>
+<arg>OK</arg>
+</arguments>
+<msg timestamp="20180620 22:02:13.944" level="INFO">Clicking button 'OK'.</msg>
+<status status="PASS" starttime="20180620 22:02:13.944" endtime="20180620 22:02:14.105"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>5s</arg>
+</arguments>
+<msg timestamp="20180620 22:02:19.107" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20180620 22:02:14.105" endtime="20180620 22:02:19.107"></status>
+</kw>
+<status status="PASS" starttime="20180620 22:02:03.841" endtime="20180620 22:02:19.108"></status>
+</kw>
+<kw name="Select The Confirmation Box For Reject" library="ExpenseAuditorRejectCreatePage">
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>5s</arg>
+</arguments>
+<msg timestamp="20180620 22:02:24.110" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20180620 22:02:19.109" endtime="20180620 22:02:24.111"></status>
+</kw>
+<kw name="Wait Dynamically For An Element And Then Click" library="CommonWeb">
+<arguments>
+<arg>${CONFIRMATION_BOX}</arg>
+</arguments>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until element ``locator`` appears on current page.</doc>
+<arguments>
+<arg>${locator}</arg>
+<arg>18s</arg>
+</arguments>
+<status status="PASS" starttime="20180620 22:02:24.113" endtime="20180620 22:02:24.156"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>${locator}</arg>
+</arguments>
+<msg timestamp="20180620 22:02:24.157" level="INFO">Clicking element 'xpath=//*[@id="_FOpt1:_FOr1:0:_FONSr2:0:MAnt2:2:pt1:AppPanel:commandButton1"]'.</msg>
+<status status="PASS" starttime="20180620 22:02:24.156" endtime="20180620 22:02:24.268"></status>
+</kw>
+<status status="PASS" starttime="20180620 22:02:24.111" endtime="20180620 22:02:24.268"></status>
+</kw>
+<status status="PASS" starttime="20180620 22:02:19.108" endtime="20180620 22:02:24.268"></status>
+</kw>
+<kw name="Logout of Application" library="CommonWeb">
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>5s</arg>
+</arguments>
+<msg timestamp="20180620 22:02:29.269" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20180620 22:02:24.269" endtime="20180620 22:02:29.269"></status>
+</kw>
+<kw name="Click on the UserName at the Right Hand Corner" library="CommonWeb">
+<kw name="Wait Dynamically For An Element And Then Click" library="CommonWeb">
+<arguments>
+<arg>${USER_NAME_LINK}</arg>
+</arguments>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until element ``locator`` appears on current page.</doc>
+<arguments>
+<arg>${locator}</arg>
+<arg>18s</arg>
+</arguments>
+<status status="PASS" starttime="20180620 22:02:29.272" endtime="20180620 22:02:29.320"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>${locator}</arg>
+</arguments>
+<msg timestamp="20180620 22:02:29.321" level="INFO">Clicking element 'xpath=//*[@id="_FOpt1:_UIScmil1u::icon"]'.</msg>
+<status status="PASS" starttime="20180620 22:02:29.320" endtime="20180620 22:02:29.454"></status>
+</kw>
+<status status="PASS" starttime="20180620 22:02:29.271" endtime="20180620 22:02:29.454"></status>
+</kw>
+<status status="PASS" starttime="20180620 22:02:29.270" endtime="20180620 22:02:29.454"></status>
+</kw>
+<kw name="Click Sign Out Link" library="CommonWeb">
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>3s</arg>
+</arguments>
+<msg timestamp="20180620 22:02:32.455" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20180620 22:02:29.455" endtime="20180620 22:02:32.455"></status>
+</kw>
+<kw name="Wait Dynamically For An Element And Then Click" library="CommonWeb">
+<arguments>
+<arg>${SIGN_OUT_LINK}</arg>
+</arguments>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until element ``locator`` appears on current page.</doc>
+<arguments>
+<arg>${locator}</arg>
+<arg>18s</arg>
+</arguments>
+<status status="PASS" starttime="20180620 22:02:32.458" endtime="20180620 22:02:32.502"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>${locator}</arg>
+</arguments>
+<msg timestamp="20180620 22:02:32.503" level="INFO">Clicking element 'xpath=//*[@id="_FOpt1:_UISlg1"]'.</msg>
+<status status="PASS" starttime="20180620 22:02:32.503" endtime="20180620 22:02:36.628"></status>
+</kw>
+<status status="PASS" starttime="20180620 22:02:32.456" endtime="20180620 22:02:36.628"></status>
+</kw>
+<status status="PASS" starttime="20180620 22:02:29.454" endtime="20180620 22:02:36.628"></status>
+</kw>
+<kw name="Take Screenshot" library="CommonWeb">
+<arguments>
+<arg>LogoutConfirmation</arg>
+</arguments>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2s</arg>
+</arguments>
+<msg timestamp="20180620 22:02:38.629" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20180620 22:02:36.629" endtime="20180620 22:02:38.629"></status>
+</kw>
+<kw name="Fetch Current Date" library="CommonWeb">
+<arguments>
+<arg>-%m-%d-%Y-%H-%M-%S</arg>
+</arguments>
+<assign>
+<var>${x}</var>
+</assign>
+<kw name="Get Current Date" library="DateTime">
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<arguments>
+<arg>result_format=${format}</arg>
+</arguments>
+<assign>
+<var>${x}</var>
+</assign>
+<msg timestamp="20180620 22:02:38.633" level="INFO">${x} = -06-20-2018-22-02-38</msg>
+<status status="PASS" starttime="20180620 22:02:38.631" endtime="20180620 22:02:38.633"></status>
+</kw>
+<msg timestamp="20180620 22:02:38.633" level="INFO">${x} = -06-20-2018-22-02-38</msg>
+<status status="PASS" starttime="20180620 22:02:38.630" endtime="20180620 22:02:38.634"></status>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<arguments>
+<arg>${fname}</arg>
+<arg>${x}</arg>
+</arguments>
+<assign>
+<var>${name}</var>
+</assign>
+<msg timestamp="20180620 22:02:38.635" level="INFO">${name} = LogoutConfirmation -06-20-2018-22-02-38</msg>
+<status status="PASS" starttime="20180620 22:02:38.634" endtime="20180620 22:02:38.635"></status>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<arguments>
+<arg>${name}</arg>
+<arg>.png</arg>
+</arguments>
+<assign>
+<var>${name}</var>
+</assign>
+<msg timestamp="20180620 22:02:38.637" level="INFO">${name} = LogoutConfirmation -06-20-2018-22-02-38 .png</msg>
+<status status="PASS" starttime="20180620 22:02:38.636" endtime="20180620 22:02:38.637"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<arguments>
+<arg>filename=${OUTPUTDIR}/${name}</arg>
+</arguments>
+<msg timestamp="20180620 22:02:38.908" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="LogoutConfirmation%20-06-20-2018-22-02-38%20.png"&gt;&lt;img src="LogoutConfirmation%20-06-20-2018-22-02-38%20.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20180620 22:02:38.637" endtime="20180620 22:02:38.908"></status>
+</kw>
+<status status="PASS" starttime="20180620 22:02:36.628" endtime="20180620 22:02:38.908"></status>
+</kw>
+<kw name="Click Confirm Button" library="CommonWeb">
+<kw name="Wait Dynamically For An Element And Then Click" library="CommonWeb">
+<arguments>
+<arg>${SIGN_OUT_CONFIRM_BTN}</arg>
+</arguments>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until element ``locator`` appears on current page.</doc>
+<arguments>
+<arg>${locator}</arg>
+<arg>18s</arg>
+</arguments>
+<status status="PASS" starttime="20180620 22:02:38.909" endtime="20180620 22:02:38.921"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>${locator}</arg>
+</arguments>
+<msg timestamp="20180620 22:02:38.922" level="INFO">Clicking element 'xpath=//button[@id="Confirm"]'.</msg>
+<status status="PASS" starttime="20180620 22:02:38.922" endtime="20180620 22:02:40.923"></status>
+</kw>
+<status status="PASS" starttime="20180620 22:02:38.908" endtime="20180620 22:02:40.923"></status>
+</kw>
+<status status="PASS" starttime="20180620 22:02:38.908" endtime="20180620 22:02:40.923"></status>
+</kw>
+<status status="PASS" starttime="20180620 22:02:24.268" endtime="20180620 22:02:40.923"></status>
+</kw>
+<status status="PASS" starttime="20180620 22:00:54.381" endtime="20180620 22:02:40.923"></status>
+</kw>
+<status status="PASS" starttime="20180620 22:00:29.060" endtime="20180620 22:02:40.923"></status>
+</kw>
+<kw name="End Web Test" library="CommonWeb" type="teardown">
+<kw name="Close All Browsers" library="Selenium2Library">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" starttime="20180620 22:02:40.930" endtime="20180620 22:02:43.005"></status>
+</kw>
+<status status="PASS" starttime="20180620 22:02:40.929" endtime="20180620 22:02:43.005"></status>
+</kw>
+<status status="PASS" starttime="20180620 22:00:25.661" endtime="20180620 22:02:43.006" critical="yes"></status>
+</test>
+<doc>This script is used to create an Expense item, Expense Report and Approve and Reject an Expense Report</doc>
+<status status="PASS" starttime="20180620 22:00:25.495" endtime="20180620 22:02:43.010"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0">Critical Tests</stat>
+<stat pass="1" fail="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" id="s1" name="ExpenseCreateApprove">ExpenseCreateApprove</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20180620 22:00:25.633" level="ERROR">Error in file 'C:\development\Oracle_Cloud_HCM_Sauce-master(20-06-2018)\Resources\PO\ExpenseApproveCreatePage.robot': Resource file '..\Resources\CommonWeb.robot' does not exist.</msg>
+<msg timestamp="20180620 22:00:25.634" level="ERROR">Error in file 'C:\development\Oracle_Cloud_HCM_Sauce-master(20-06-2018)\Resources\PO\ExpenseApproveCreatePage.robot': Resource file 'CommonWeb.robot' does not exist.</msg>
+<msg timestamp="20180620 22:00:25.640" level="ERROR">Error in file 'C:\development\Oracle_Cloud_HCM_Sauce-master(20-06-2018)\Resources\PO\ExpenseAuditorApproveCreatePage.robot': Resource file '..\Resources\CommonWeb.robot' does not exist.</msg>
+<msg timestamp="20180620 22:00:25.640" level="ERROR">Error in file 'C:\development\Oracle_Cloud_HCM_Sauce-master(20-06-2018)\Resources\PO\ExpenseAuditorApproveCreatePage.robot': Resource file 'CommonWeb.robot' does not exist.</msg>
+<msg timestamp="20180620 22:00:25.643" level="ERROR">Error in file 'C:\development\Oracle_Cloud_HCM_Sauce-master(20-06-2018)\Resources\PO\ExpenseAuditorRejectCreatePage.robot': Setting variable '//*[@id="_FOpt1:_FOr1:0:_FONSr2:0:MAnt2:2:pt1:AppPanel:commandToolbarButton1::popEl"]' failed: Invalid variable name '//*[@id="_FOpt1:_FOr1:0:_FONSr2:0:MAnt2:2:pt1:AppPanel:commandToolbarButton1::popEl"]'.</msg>
+<msg timestamp="20180620 22:00:25.644" level="ERROR">Error in file 'C:\development\Oracle_Cloud_HCM_Sauce-master(20-06-2018)\Resources\PO\ExpenseAuditorRejectCreatePage.robot': Resource file '..\Resources\CommonWeb.robot' does not exist.</msg>
+<msg timestamp="20180620 22:00:25.645" level="ERROR">Error in file 'C:\development\Oracle_Cloud_HCM_Sauce-master(20-06-2018)\Resources\PO\ExpenseAuditorRejectCreatePage.robot': Resource file 'CommonWeb.robot' does not exist.</msg>
+<msg timestamp="20180620 22:00:25.649" level="ERROR">Error in file 'C:\development\Oracle_Cloud_HCM_Sauce-master(20-06-2018)\Resources\PO\AuditorInitiatePaymentApprovedCreatePage.robot': Resource file '..\Resources\CommonWeb.robot' does not exist.</msg>
+<msg timestamp="20180620 22:00:25.650" level="ERROR">Error in file 'C:\development\Oracle_Cloud_HCM_Sauce-master(20-06-2018)\Resources\PO\AuditorInitiatePaymentApprovedCreatePage.robot': Resource file 'CommonWeb.robot' does not exist.</msg>
+</errors>
+</robot>
